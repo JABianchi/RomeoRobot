@@ -1,0 +1,40 @@
+#######################################
+# Syntax Coloring Map For RomeoMotor
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+RomeoMotor	KEYWORD1
+RomeoJoystick	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+move	KEYWORD2
+flip	KEYWORD2
+shutDown	KEYWORD2
+button	KEYWORD2
+joypad	KEYWORD2
+
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+ANDROID LITERAL1
+IPHONE  ITERAL1
+UP  LITERAL1
+DOWN    LITERAL1
+RIGHT   LITERAL1
+LEFT    LITERAL1
+TOP LITERAL1
+BOTTOM  LITERAL1
+X   LITERAL1
+Y   LITERAL1
