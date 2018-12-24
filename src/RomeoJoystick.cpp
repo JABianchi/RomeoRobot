@@ -9,27 +9,16 @@
 #include "RomeoJoystick.h"
 
 
-ANDROID = "ANDROID";
-IPHONE = "IPHONE";
-UP = "UP";
-DOWN = "DOWN";
-RIGHT = "RIGHT";
-LEFT = "LEFT";
-TOP = "TOP";
-BOTTOM = "BOTTOM";
-X = "X";
-Y = "Y";
+static const byte UP_BUTTON = 1;
+static const byte RIGHT_BUTTON = 2;
+static const byte DOWN_BUTTON = 3;
+static const byte LEFT_BUTTON = 4;
+static const byte TOP_BUTTON = 5;
+static const byte BOTTOM_BUTTON = 6;
 
-byte UP_BUTTON = 1;
-byte RIGHT_BUTTON = 2;
-byte DOWN_BUTTON = 3;
-byte LEFT_BUTTON = 4;
-byte HIGH_BUTTON = 5;
-byte LOW_BUTTON = 6;
-
-RomeoJoystick::RomeoJoystick(String type)
+RomeoJoystick::RomeoJoystick(PhoneType phoneName)
 {
-  _type = type;
+  _phoneName = phoneName;
   Serial.begin(115200);
   Serial.println("Starting serial monitor at 115200 for bluetooth joysticks");
 
@@ -50,21 +39,21 @@ RomeoJoystick::RomeoJoystick(String type)
 }
 
 
-boolean RomeoJoystick::button(String buttonName)
+boolean RomeoJoystick::button(ButtonType buttonName)
 {
   updateLoop();
 
-  if(buttonName.equals(UP)){
+  if(buttonName == UP){
     return _UP_VAL;
-  } else if(buttonName.equals(DOWN)){
+  } else if(buttonName == DOWN){
     return _DOWN_VAL;
-  } else if(buttonName.equals(RIGHT)){
+  } else if(buttonName == RIGHT){
     return _RIGHT_VAL;
-  } else if(buttonName.equals(LEFT)){
+  } else if(buttonName == LEFT){
     return _LEFT_VAL;
-  } else if(buttonName.equals(TOP)){
+  } else if(buttonName == TOP){
     return _TOP_VAL;
-  } else if(buttonName.equals(BOTTOM)){
+  } else if(buttonName == BOTTOM){
     return _BOTTOM_VAL;
   } else {
     Serial.println("Incorrect button name.");
@@ -74,14 +63,14 @@ boolean RomeoJoystick::button(String buttonName)
 }
 
 
-int RomeoJoystick::joypad(String axis)
+int RomeoJoystick::axis(AxisType axisName)
 {
 
   updateLoop();
 
-  if(axis.equals(Y)){
+  if(axisName == Y){
     return _Y_VAL;
-  } else if (axis.equals(X)){
+  } else if (axisName == X){
     return _X_VAL;
   } else {
     Serial.println("Incorrect axis name.");
@@ -99,7 +88,7 @@ void RomeoJoystick::updateLoop()
     
     byte incomingByte = Serial.read();
     
-    if(_type.equals(IPHONE)){
+    if(_phoneName == IPHONE){
 
       if(incomingByte == 85){
         _byteNum = 0;
@@ -171,7 +160,7 @@ void RomeoJoystick::updateLoop()
       }      
     }
 
-    else if(_type.equals(ANDROID)){
+    else if(_phoneName == ANDROID){
       Serial.println("Android not supported yet...");
     }
 
@@ -206,6 +195,45 @@ void RomeoJoystick::updateLoop()
     Serial.print(incomingByte);
     Serial.println();   //print line feed character
     */
+
+    /*
+    //#define BLYNK_USE_DIRECT_CONNECT
+
+// You could use a spare Hardware Serial on boards that have it (like Mega)
+#include <SoftwareSerial.h>
+SoftwareSerial DebugSerial(2, 3); // RX, TX
+
+#define BLYNK_PRINT DebugSerial
+
+#include <BlynkSimpleSerialBLE.h>
+
+// You should get Auth Token in the Blynk App.
+// Go to the Project Settings (nut icon).
+char auth[] = "YourAuthToken";
+
+void setup()
+{
+  // Debug console
+  DebugSerial.begin(9600);
+
+  DebugSerial.println("Waiting for connections...");
+
+  // Blynk will work through Serial
+  // Do not read or write this serial manually in your sketch
+  Serial.begin(115200);
+  Blynk.begin(Serial, auth);
+}
+
+void loop()
+{
+  Blynk.run();
+}
+
+*/
+
+
+
+
     
   }
 }

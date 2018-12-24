@@ -15,9 +15,9 @@ RomeoJoystick	KEYWORD1
 
 move	KEYWORD2
 flip	KEYWORD2
-shutDown	KEYWORD2
+end	KEYWORD2
 button	KEYWORD2
-joypad	KEYWORD2
+axis	KEYWORD2
 
 
 #######################################

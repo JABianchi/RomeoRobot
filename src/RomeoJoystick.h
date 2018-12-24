@@ -9,27 +9,39 @@
 
 #include "Arduino.h"
 
+enum ButtonType {
+  UP,
+  DOWN,
+  RIGHT,
+  LEFT,
+  TOP,
+  BOTTOM
+};
+
+enum AxisType {
+  X,
+  Y
+};
+
+enum PhoneType{
+  ANDROID,
+  IPHONE
+};
+
+
+
 class RomeoJoystick
 {
   public:
-    RomeoJoystick(String type);
-    boolean button(String buttonName);
-    int joypad(String axis);
-    String UP;
-    String DOWN;
-    String RIGHT;
-    String LEFT;
-    String TOP;
-    String BOTTOM;
-    String X;
-    String Y;
-    String ANDROID;
-    String IPHONE;
+    RomeoJoystick(PhoneType phoneName);
+    boolean button(ButtonType buttonName);
+    int axis(AxisType axisName);
+    void updateLoop();
+
     
   private:
-    String _type;
-    String _buttonName;
-    String _axis;
+    PhoneType _phoneName;
+
     int _X_VAL;
     int _Y_VAL;
     boolean _UP_VAL;
@@ -38,6 +50,7 @@ class RomeoJoystick
     boolean _LEFT_VAL;
     boolean _TOP_VAL;
     boolean _BOTTOM_VAL;
+    
     byte _byteNum;
     boolean _isCounting;
     boolean _buttonFlag;

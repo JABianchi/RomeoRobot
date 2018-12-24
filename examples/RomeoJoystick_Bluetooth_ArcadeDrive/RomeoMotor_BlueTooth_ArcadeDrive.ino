@@ -1,4 +1,5 @@
-#include <RomeoMotor.h>
+#include "RomeoMotor.h"
+#include "RomeoJoystick.h"
 
 RomeoMotor rightMotor(1);
 RomeoMotor leftMotor(2);
@@ -10,8 +11,8 @@ void setup() {
 
 void loop() {
   
-  int x = myPhone(X);
-  int y = myPhone(Y);
+  int x = myPhone.axis(X);
+  int y = myPhone.axis(Y);
 
   //ARCADE-STYLE DRIVING
   rightMotor.move(y+x);

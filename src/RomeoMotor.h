@@ -14,8 +14,8 @@ class RomeoMotor
   public:
     RomeoMotor(int motor);
     void move(int speed);
-    void flip(boolean flip);
-    void shutDown();
+    void flip(boolean isFlipped);
+    void end();
   private:
     int _motor;
     boolean _isFlipped;
