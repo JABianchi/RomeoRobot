@@ -1,5 +1,14 @@
-#include "RomeoMotor.h"
-#include "RomeoJoystick.h"
+/* ---------------------------------------------------------------------------
+* Example of an arcade drive robot being controlled by the GO BLE app
+* using both the RomeoJoystick and RomeoMotor Libraries.
+* 
+* Author: Mr. Joel Bianchi
+* Date: 12/24/2018
+* ---------------------------------------------------------------------------
+*/
+
+#include <RomeoMotor.h>
+#include <RomeoJoystick.h>
 
 RomeoMotor rightMotor(1);
 RomeoMotor leftMotor(2);
