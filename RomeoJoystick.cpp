@@ -9,12 +9,12 @@
 #include "RomeoJoystick.h"
 
 
-static const byte UP_BUTTON = 1;
-static const byte RIGHT_BUTTON = 2;
-static const byte DOWN_BUTTON = 3;
-static const byte LEFT_BUTTON = 4;
-static const byte TOP_BUTTON = 5;
-static const byte BOTTOM_BUTTON = 6;
+#define UP_BUTTON 1
+#define RIGHT_BUTTON 2
+#define DOWN_BUTTON 3
+#define LEFT_BUTTON 4
+#define TOP_BUTTON 5
+#define BOTTOM_BUTTON 6
 
 #define HBYTE0 85
 #define HBYTE1 170
@@ -46,6 +46,8 @@ RomeoJoystick::RomeoJoystick(PhoneType phoneName)
   _isCounting = false;
   _buttonFlag = false;
   _joyFlag = false;
+  _isPrint = false;
+  _isPrintRaw = false;
 
 }
 
@@ -92,7 +94,7 @@ int RomeoJoystick::axis(AxisType axisName)
 
 
 //update values based on particular phone & app
-private void RomeoJoystick::updateLoop()
+void RomeoJoystick::updateLoop()
 {
   if(_phoneName == IPHONE){
     updateGOBLE();
@@ -107,121 +109,130 @@ private void RomeoJoystick::updateLoop()
 
 
 /*--------Update for GOBLE on IPHONE & ANDROID -------------------------------------------------------------- */
-private void RomeoJoystick::updateGOBLE(){
+void RomeoJoystick::updateGOBLE(){
 
-if (Serial.available())  {
+  if (Serial.available())  {
 
-  //Get a new byte
-  byte inByte = Serial.read();
-  
-  //Check if a new frame has started
-  if(inByte == HBYTE0 && !_buttonFlag && !_joyFlag){
-    _byteNum = 1;
-    _isCounting = true;
-  }
-
-  //Count the bytes in each frame
-  if(_isCounting){
-      _byteNum++;
-  }
-
-  //Reset the counter after 8 bytes
-  if(_byteNum == END_BYTE){
-    _isCounting = false;
-    _buttonFlag = false;
-    _joyFlag = false;
-  }
-
-  //GET BUTTON VALUES
-  if(_byteNum == BUTTON_CHECK_BYTE && inByte == 1){
-    //Serial.println("A BUTTON WAS PUSHED!");
-    _buttonFlag = true;
-  }
-
-  if(_buttonFlag && _byteNum == BUTTON_VAL_BYTE){
+    //Get a new byte
+    byte inByte = Serial.read();
     
-    //flip all buttons to false
-    _UP_VAL = false;
-    _DOWN_VAL = false;
-    _RIGHT_VAL = false;
-    _LEFT_VAL = false;
-    _TOP_VAL = false;
-    _BOTTOM_VAL = false;
+    //Check if a new frame has started
+    if(inByte == HBYTE0 && !_buttonFlag && !_joyFlag){
+      _byteNum = 0;
+      _isCounting = true;
+    }
 
-    //flip back only pressed button
-    if(inByte == UP_BUTTON){
-      _UP_VAL = true;
-    } else if(inByte == RIGHT_BUTTON){
-      _RIGHT_VAL = true;
-    } else if(inByte == DOWN_BUTTON){
-      _DOWN_VAL = true;
-    } else if(inByte == LEFT_BUTTON){
-      _LEFT_VAL = true;
-    } else if(inByte == TOP_BUTTON){
-      _TOP_VAL = true;
-    } else if(inByte == BOTTOM_BUTTON){
-      _BOTTOM_VAL = true;
-    } else {
-      //something wrong happened...
+    //Count the bytes in each frame
+    if(_isCounting){
+        _byteNum++;
+    }
+
+    //Reset the counter after 8 bytes
+    if(_byteNum == END_BYTE){
+      _isCounting = false;
+      _buttonFlag = false;
+      _joyFlag = false;
+    }
+
+    //GET BUTTON VALUES
+    if(_byteNum == BUTTON_CHECK_BYTE && inByte == 1){
+      //Serial.println("A BUTTON WAS PUSHED!");
+      _buttonFlag = true;
+    }
+
+    if(_buttonFlag && _byteNum == BUTTON_VAL_BYTE){
+      
+      //flip all buttons to false
+      _UP_VAL = false;
+      _DOWN_VAL = false;
+      _RIGHT_VAL = false;
+      _LEFT_VAL = false;
+      _TOP_VAL = false;
+      _BOTTOM_VAL = false;
+
+      //flip back only pressed button
+      if(inByte == UP_BUTTON){
+        _UP_VAL = true;
+      } else if(inByte == RIGHT_BUTTON){
+        _RIGHT_VAL = true;
+      } else if(inByte == DOWN_BUTTON){
+        _DOWN_VAL = true;
+      } else if(inByte == LEFT_BUTTON){
+        _LEFT_VAL = true;
+      } else if(inByte == TOP_BUTTON){
+        _TOP_VAL = true;
+      } else if(inByte == BOTTOM_BUTTON){
+        _BOTTOM_VAL = true;
+      } else {
+        //something wrong happened...
+      }
+      
     }
     
-  }
+    //GET JOYPAD VALUES
+    if(_byteNum == AXIS_CHECK_BYTE && inByte == 3 && !_buttonFlag){
+      //Serial.println("JOYPAD WAS TOUCHED!");
+      _joyFlag = true;
+    }
     
-  //GET JOYPAD VALUES
-  if(_byteNum == AXIS_CHECK_BYTE && inByte == 3 && !_buttonFlag){
-    //Serial.println("JOYPAD WAS TOUCHED!");
-    _joyFlag = true;
-  }
-  
-  if(_joyFlag && _byteNum == Y_JOY_BYTE){
-    _Y_VAL = inByte;
-  
-  } else if(_joyFlag && _byteNum == X_JOY_BYTE){
-  
-    _X_VAL = inByte;
-    _joyFlag = false;
+    if(_joyFlag && _byteNum == Y_JOY_BYTE){
+      _Y_VAL = inByte;
     
-    //map values
-    _X_VAL = constrain(map(_X_VAL,1,255,-127,127),-127,127);
-    _Y_VAL = constrain(map(_Y_VAL,1,255,-127,127),-127,127);
+    } else if(_joyFlag && _byteNum == X_JOY_BYTE){
+    
+      _X_VAL = inByte;
+      _joyFlag = false;
+      
+      //map values
+      _X_VAL = constrain(map(_X_VAL,1,255,-127,127),-127,127);
+      _Y_VAL = constrain(map(_Y_VAL,1,255,-127,127),-127,127);
 
-  }      
+    }      
 
-  //Raw Values Print
-  //Serial.print(_byteNum);
-  //Serial.print("\t");
-  //Serial.print("inByte ");
-  //Serial.println(inByte, DEC);
+    //Print Values
+    if(_isPrint){
 
-   
+      Serial.print("Buttons: ");
+      Serial.print("UP: ");
+      Serial.print(_UP_VAL);
+      Serial.print(", DOWN: ");
+      Serial.print(_DOWN_VAL);
+      Serial.print(", LEFT: ");
+      Serial.print(_LEFT_VAL);
+      Serial.print(", RIGHT: ");
+      Serial.print(_RIGHT_VAL);
+      Serial.print(", TOP: ");
+      Serial.print(_TOP_VAL);
+      Serial.print(", BOTTOM: ");
+      Serial.print(_BOTTOM_VAL);
+      Serial.print(",     ");      
+      Serial.print("Joy: ");
+      Serial.print(_X_VAL);
+      Serial.print(", ");
+      Serial.print(_Y_VAL);
+      Serial.print(" )");
+      Serial.println();
+    }
+
+    //Print Raw Values
+    if(_isPrintRaw){
+      Serial.print(_byteNum);
+      Serial.print("\t");
+      Serial.print("inByte ");
+      Serial.println(inByte, DEC);
+    }
+  }   
 }
 
 
 //Print out All Values Function
-RomeoJoystick::printJoy(boolean isPrint){
+void RomeoJoystick::printJoy(boolean isPrint){
+  _isPrint = isPrint;
+}
 
-  if(isPrint){
-
-    Serial.print("Buttons: ");
-    Serial.print("UP: ");
-    Serial.print(_UP_VAL);
-    Serial.print(", DOWN: ");
-    Serial.print(_DOWN_VAL);
-    Serial.print(", LEFT: ");
-    Serial.print(_LEFT_VAL);
-    Serial.print(", RIGHT: ");
-    Serial.print(_RIGHT_VAL);
-    Serial.print(", TOP: ");
-    Serial.print(_TOP_VAL);
-    Serial.print(", BOTTOM: ");
-    Serial.print(_BOTTOM_VAL);
-    Serial.print(",     ");      
-    Serial.print("Joy: ");
-    Serial.print(_X_VAL);
-    Serial.print(", ");
-    Serial.print(_Y_VAL);
-    Serial.print(" )");
-    Serial.println();
-  }
-}    
-
+//Print out All Values Function
+void RomeoJoystick::printJoy(boolean isPrint, boolean isPrintRaw){
+  _isPrint = isPrint;
+  _isPrintRaw = isPrintRaw;
+}
+    

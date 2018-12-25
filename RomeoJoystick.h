@@ -36,11 +36,13 @@ class RomeoJoystick
     RomeoJoystick(PhoneType phoneName);
     boolean button(ButtonType buttonName);
     int axis(AxisType axisName);
-    void updateLoop();
-
+    void printJoy(boolean isPrint);
+    void printJoy(boolean isPrint, boolean isPrintRaw);
     
   private:
     PhoneType _phoneName;
+    void updateLoop();
+    void updateGOBLE();
 
     int _X_VAL;
     int _Y_VAL;
@@ -55,6 +57,8 @@ class RomeoJoystick
     boolean _isCounting;
     boolean _buttonFlag;
     boolean _joyFlag;
+    boolean _isPrint;
+    boolean _isPrintRaw;
 
 };
 

@@ -16,10 +16,12 @@ RomeoJoystick myPhone(IPHONE);
 
 void setup() {
   Serial.begin(115200);  //initial the Serial
+  myPhone.printJoy(true); //print out Joystick values to serial monitor
 }
 
 void loop() {
   
+  //Get values of x-axis & y-axis from phone
   int x = myPhone.axis(X);
   int y = myPhone.axis(Y);
 
