@@ -34,14 +34,14 @@ enum AppType{
 class RomeoJoystick
 {
   public:
-    RomeoJoystick(PhoneType phoneName);
+    RomeoJoystick(AppType appName);
     boolean button(ButtonType buttonName);
     int axis(AxisType axisName);
     void printJoy(boolean isPrint);
     void printJoy(boolean isPrint, boolean isPrintRaw);
     
   private:
-    PhoneType _phoneName;
+    AppType _appName;
     void updateLoop();
     void updateGOBLE();
 
