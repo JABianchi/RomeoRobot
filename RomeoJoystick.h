@@ -23,9 +23,10 @@ enum AxisType {
   Y
 };
 
-enum PhoneType{
-  ANDROID,
-  IPHONE
+enum AppType{
+  GOBLE,
+  BLYNK,
+  OTHER
 };
 
 

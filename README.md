@@ -4,7 +4,7 @@
 This library provides functions to control an Arduino robot using the DFRobot Romeo BLE board.
 It was inspired by Carnegie Mellon's Robotics Academy's work on RobotC for the VEX Controls system.
 
-*Password for ANDROID (Go BLE app): 0000
+*Password for ANDROID (Go BLE app): 000000
 
 
 # RomeoMotor()

@@ -16,6 +16,7 @@ class RomeoMotor
     void move(int speed);
     void flip(boolean isFlipped);
     void end();
+    void shutDown(); //deprecated
   private:
     int _motor;
     boolean _isFlipped;

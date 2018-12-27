@@ -82,3 +82,9 @@ void RomeoMotor::end()
   _motor = 0;
 
 }
+
+//function deprecated
+void RomeoMotor::shutDown()
+{
+  ::end();
+}

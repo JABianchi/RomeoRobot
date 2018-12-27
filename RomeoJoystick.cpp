@@ -27,9 +27,9 @@
 #define Y_JOY_BYTE 6
 #define END_BYTE 8
 
-RomeoJoystick::RomeoJoystick(PhoneType phoneName)
+RomeoJoystick::RomeoJoystick(AppType appName)
 {
-  _phoneName = phoneName;
+  _appName = appName;
   Serial.begin(115200);
   Serial.println("Starting serial monitor at 115200 for bluetooth joysticks");
 
@@ -96,12 +96,12 @@ int RomeoJoystick::axis(AxisType axisName)
 //update values based on particular phone & app
 void RomeoJoystick::updateLoop()
 {
-  if(_phoneName == IPHONE){
+  if(_appName == GOBLE){
     updateGOBLE();
-  } else if (_phoneName == ANDROID){
-    updateGOBLE();
+  } else if (_appName == BLYNK){
+    //updateBLYNK();            //new method to be added later
   } else {
-    Serial.println ("Wrong phone type entered.");
+    Serial.println ("Wrong app type entered.");
   }
 
 
