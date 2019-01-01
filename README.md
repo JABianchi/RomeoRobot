@@ -8,7 +8,7 @@ The following libraries are included:
 
 ## RomeoMotor Library
 * Control individual motors using a single integer for its speed
-* Go to the [RomeMotor Library] (RomeoMotor Library.md)
+Go to the [RomeMotor Library] (RomeoMotor Library.md)
 
 ## RomeoJoystick Library
 * Control the robot using the GO BLE app on iPhone or Android smartphone
