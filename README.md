@@ -6,17 +6,17 @@ It was inspired by Carnegie Mellon's Robotics Academy's work on RobotC for the V
 
 The following libraries are included:
 
-## RomeoMotor Library
-Control individual motors using a single integer for its speed
-Go to the [RomeMotor%20Library](docs/RomeoMotor%20Library.md)
+## [RomeMotor Library](docs/RomeoMotor%20Library.md)
+* Control individual motors using a single integer for its speed
+* Go to the [RomeMotor Library](docs/RomeoMotor%20Library.md)
 
 ## RomeoJoystick Library
 * Control the robot using the GO BLE app on iPhone or Android smartphone
-* (RomeoJoystick Library.md)
+* Go to the [RomeoJoystick Library](RomeoJoystick%20Library.md)
 
 ## RomeoDrive Library
 * Choose a drive system (arcade drive, tank drive, mecanum drive, etc) to remotely control your robot
-* (RomeoDrive Library.md)
+* Go to the [RomeoDrive Library](docs/RomeoDrive%20Library.md)
 
 
 ## Future Work
