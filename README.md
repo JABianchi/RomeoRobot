@@ -20,7 +20,7 @@ The following libraries are included:
 
 
 ## Future Work
-* Integration of the configurable BLYNK app (when BLYNK revises their BLE plugin)
-* Include tank-drive methods for BLYNK app
+* Integration of the configurable [BLYNK app](https://github.com/blynkkk/blynk-library) (when BLYNK revises their BLE plugin)
+* Include tank-drive methods for [BLYNK app](https://github.com/blynkkk/blynk-library)
 * RomeoMotor methods to control motors beyond the M1 and M2 ports (that use a VEX MC-29 on Arduino pins 3,5,6,9,10,11)
 * Include mecanum-drive methods
