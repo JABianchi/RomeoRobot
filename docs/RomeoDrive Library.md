@@ -5,7 +5,7 @@ This library provides functions to control an Arduino robot using the DFRobot Ro
 It was inspired by Carnegie Mellon's Robotics Academy's work on RobotC for the VEX Controls system.
 
 Links to other Libraries:
-* Go to the [RomeMotor Library](docs/RomeoMotor%20Library.md)
+* Go to the [RomeMotor Library](RomeoMotor%20Library.md)
 * Go to the [RomeoJoystick Library](RomeoJoystick%20Library.md)
 
 

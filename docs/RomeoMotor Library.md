@@ -6,7 +6,7 @@ It was inspired by Carnegie Mellon's Robotics Academy's work on RobotC for the V
 
 Links to other Libraries:
 * Go to the [RomeoJoystick Library](RomeoJoystick%20Library.md)
-* Go to the [RomeoDrive Library](docs/RomeoDrive%20Library.md)
+* Go to the [RomeoDrive Library](RomeoDrive%20Library.md)
 
 # RomeoMotor()
 ### description:

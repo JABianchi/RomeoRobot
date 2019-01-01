@@ -7,8 +7,8 @@ The "GO BLE" app is officially supported by dfRobot, and provides a 2-axis joyst
 This library follows similar conventions to Carnegie Mellon's Robotics Academy's work on RobotC for the VEX Controls system.
 
 Links to other Libraries:
-* Go to the [RomeMotor Library](docs/RomeoMotor%20Library.md)
-* Go to the [RomeoDrive Library](docs/RomeoDrive%20Library.md)
+* Go to the [RomeMotor Library](RomeoMotor%20Library.md)
+* Go to the [RomeoDrive Library](RomeoDrive%20Library.md)
 
 
 

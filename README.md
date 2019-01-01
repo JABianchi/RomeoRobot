@@ -10,9 +10,9 @@ The following libraries are included:
 * Control individual motors using a single integer for its speed
 * Go to the [RomeMotor Library](docs/RomeoMotor%20Library.md)
 
-## [RomeoJoystick Library](RomeoJoystick%20Library.md)
+## [RomeoJoystick Library](docs/RomeoJoystick%20Library.md)
 * Control the robot using the GO BLE app on iPhone or Android smartphone
-* Go to the [RomeoJoystick Library](RomeoJoystick%20Library.md)
+* Go to the [RomeoJoystick Library](docs/RomeoJoystick%20Library.md)
 
 ## [RomeoDrive Library](docs/RomeoDrive%20Library.md)
 * Choose a drive system (arcade drive, tank drive, mecanum drive, etc) to remotely control your robot
