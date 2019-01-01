@@ -6,6 +6,11 @@ in order to remotely control an Arduino robot using the DFRobot Romeo BLE board.
 The "GO BLE" app is officially supported by dfRobot, and provides a 2-axis joystick and 6 buttons of feedback.
 This library follows similar conventions to Carnegie Mellon's Robotics Academy's work on RobotC for the VEX Controls system.
 
+##Links to other Libraries:
+* Go to the [RomeMotor Library](docs/RomeoMotor%20Library.md)
+* Go to the [RomeoJoystick Library](RomeoJoystick%20Library.md)
+* Go to the [RomeoDrive Library](docs/RomeoDrive%20Library.md)
+
 
 
 # RomeoJoystick()
