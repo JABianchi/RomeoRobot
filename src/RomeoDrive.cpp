@@ -12,9 +12,9 @@
 RomeoDrive::RomeoDrive(AppType appName)
 {
  
-  RomeoMotor rightMotor(1);
-  RomeoMotor leftMotor(2);
-  RomeoJoystick phone(appName);
+  //RomeoMotor rightMotor(1);
+  //RomeoMotor leftMotor(2);
+  //RomeoJoystick phone(appName);
 
   //_rightMotor = rightMotor;
   //_leftMotor = leftMotor;
