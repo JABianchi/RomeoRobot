@@ -16,9 +16,9 @@ RomeoDrive::RomeoDrive(AppType appName)
   RomeoMotor leftMotor(2);
   RomeoJoystick phone(appName);
 
-  _rightMotor = rightMotor;
-  _leftMotor = leftMotor;
-  _phone = phone;
+  //_rightMotor = rightMotor;
+  //_leftMotor = leftMotor;
+  //_phone = phone;
   
 }
 
