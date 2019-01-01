@@ -18,8 +18,7 @@ Go to the [RomeMotor Library] (docs/RomeoMotor%20Library.md)
 * Choose a drive system (arcade drive, tank drive, mecanum drive, etc) to remotely control your robot
 * (RomeoDrive Library.md)
 
-
-## Future Work
+## Future Work 
 * Integration of the configurable BLYNK app (when BLYNK revises their BLE plugin)
 * Include tank-drive methods for BLYNK app
 * RomeoMotor methods to control motors beyond the M1 and M2 ports (that use a VEX MC-29 on Arduino pins 3,5,6,9,10,11)
