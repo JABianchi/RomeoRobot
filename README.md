@@ -7,7 +7,7 @@ It was inspired by Carnegie Mellon's Robotics Academy's work on RobotC for the V
 The following libraries are included:
 
 ## RomeoMotor Library
-* Control individual motors using a single integer for its speed
+Control individual motors using a single integer for its speed
 Go to the [RomeMotor Library] (RomeoMotor Library.md)
 
 ## RomeoJoystick Library
