@@ -15,7 +15,7 @@
 class RomeoDrive
 {
   public:
-    RomeoDrive();
+   // RomeoDrive;
     RomeoDrive(AppType appName);
     void arcade();
     void arcade(int moveSpeed, int turnSpeed);
@@ -24,9 +24,9 @@ class RomeoDrive
     void end();
 
   private:
-    RomeoMotor _rightMotor;
-    RomeoMotor _leftMotor;
-    RomeoJoystick _myPhone;
+    RomeoMotor _rightMotor(1);
+    RomeoMotor _leftMotor(2);
+    RomeoJoystick _phone;
 
 };
 

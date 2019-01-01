@@ -9,6 +9,20 @@
 #include "RomeoJoystick.h"
 
 
+RomeoDrive::RomeoDrive(AppType appName)
+{
+ 
+  RomeoMotor rightMotor(1);
+  RomeoMotor leftMotor(2);
+  RomeoJoystick phone(appName);
+
+  _rightMotor = rightMotor;
+  _leftMotor = leftMotor;
+  _phone = phone;
+  
+}
+
+/*
 RomeoDrive::RomeoDrive()
 {
   RomeoMotor rightMotor(1);
@@ -18,18 +32,8 @@ RomeoDrive::RomeoDrive()
   _leftMotor = leftMotor;
   
 }
+*/
 
-RomeoDrive::RomeoDrive(AppType appName)
-{
-  RomeoMotor rightMotor(1);
-  RomeoMotor leftMotor(2);
-  RomeoJoystick myPhone(appName);
-
-  _rightMotor = rightMotor;
-  _leftMotor = leftMotor;
-  _myPhone = myPhone;
-  
-}
 
 
 void RomeoDrive::arcade(){
