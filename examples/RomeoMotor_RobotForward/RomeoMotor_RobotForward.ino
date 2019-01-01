@@ -1,7 +1,7 @@
 /* ---------------------------------------------------------------------------
 * Example of a tank drive robot using the RomeoMotor Library.
 * 
-* Author: Mr. Joel Bianchi
+* Author: Mr. Joel Andrew Bianchi
 * Date: 12/3/2018
 * ---------------------------------------------------------------------------
 */

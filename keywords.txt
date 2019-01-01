@@ -8,6 +8,7 @@
 
 RomeoMotor	KEYWORD1
 RomeoJoystick	KEYWORD1
+RomeoDrive  KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
@@ -16,8 +17,11 @@ RomeoJoystick	KEYWORD1
 move	KEYWORD2
 flip	KEYWORD2
 end	KEYWORD2
+shutDown    KEYWORD2
 button	KEYWORD2
 axis	KEYWORD2
+arcade  KEYWORD2
+tank    KEYWORD2
 
 
 #######################################
@@ -28,8 +32,9 @@ axis	KEYWORD2
 # Constants (LITERAL1)
 #######################################
 
-ANDROID LITERAL1
-IPHONE  ITERAL1
+GOBLE LITERAL1
+BLYNK  LITERAL1
+OTHER   LITERAL1
 UP  LITERAL1
 DOWN    LITERAL1
 RIGHT   LITERAL1

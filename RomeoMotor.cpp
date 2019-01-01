@@ -86,5 +86,5 @@ void RomeoMotor::end()
 //function deprecated
 void RomeoMotor::shutDown()
 {
-  ::end();
+  end();
 }

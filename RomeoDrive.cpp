@@ -5,6 +5,9 @@
 */
 
 #include "RomeoDrive.h"
+#include "RomeoMotor.h"
+#include "RomeoJoystick.h"
+
 
 RomeoDrive::RomeoDrive()
 {
@@ -16,11 +19,11 @@ RomeoDrive::RomeoDrive()
   
 }
 
-RomeoDrive::RomeoDrive(AppType _appName)
+RomeoDrive::RomeoDrive(AppType appName)
 {
   RomeoMotor rightMotor(1);
   RomeoMotor leftMotor(2);
-  RomeoJoystick myPhone(_appName);
+  RomeoJoystick myPhone(appName);
 
   _rightMotor = rightMotor;
   _leftMotor = leftMotor;

@@ -2,7 +2,7 @@
 * Example of an arcade drive robot being controlled by the GO BLE app
 * using both the RomeoJoystick and RomeoMotor Libraries.
 * 
-* Author: Mr. Joel Bianchi
+* Author: Mr. Joel Andrew Bianchi
 * Date: 12/24/2018
 * ---------------------------------------------------------------------------
 */
@@ -12,7 +12,7 @@
 
 RomeoMotor rightMotor(1);
 RomeoMotor leftMotor(2);
-RomeoJoystick myPhone(IPHONE);
+RomeoJoystick myPhone(GOBLE);
 
 void setup() {
   Serial.begin(115200);  //initial the Serial

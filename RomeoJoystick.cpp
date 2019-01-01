@@ -52,6 +52,23 @@ RomeoJoystick::RomeoJoystick(AppType appName)
 }
 
 
+int RomeoJoystick::axis(AxisType axisName)
+{
+
+  updateLoop();
+
+  if(axisName == Y){
+    return _Y_VAL;
+  } else if (axisName == X){
+    return _X_VAL;
+  } else {
+    Serial.println("Incorrect axis name.");
+    return 0;
+  }
+
+}
+
+
 boolean RomeoJoystick::button(ButtonType buttonName)
 {
   updateLoop();
@@ -71,23 +88,6 @@ boolean RomeoJoystick::button(ButtonType buttonName)
   } else {
     Serial.println("Incorrect button name.");
     return false;
-  }
-
-}
-
-
-int RomeoJoystick::axis(AxisType axisName)
-{
-
-  updateLoop();
-
-  if(axisName == Y){
-    return _Y_VAL;
-  } else if (axisName == X){
-    return _X_VAL;
-  } else {
-    Serial.println("Incorrect axis name.");
-    return 0;
   }
 
 }
