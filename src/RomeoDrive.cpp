@@ -13,7 +13,8 @@ RomeoDrive::RomeoDrive(AppType appName)
 {
   RomeoMotor r = new RomeoMotor(1);
   RomeoMotor l = new RomeoMotor(2);
-  RomeoJoystick j(appName);   //this is passing the number 512 in the sample code param "GOBLE"
+  //RomeoJoystick j(appName);   //this is passing the number 512 in the sample code param "GOBLE"
+  RomeoJoystick j = new RomeoJoystick(0);
 
   _rightMotor = &r;
   _leftMotor = &l;

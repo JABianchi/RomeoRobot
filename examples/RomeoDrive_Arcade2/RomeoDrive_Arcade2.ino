@@ -12,7 +12,9 @@
 #include <RomeoJoystick.h>
 
 RomeoDrive myDrive();
-RomeoJoystick myPhone(GOBLE);
+//RomeoJoystick myPhone(GOBLE);
+RomeoJoystick myPhone(0); //0 is the first value, GOBLE, in the enum
+
 
 void setup() {
   Serial.begin(115200);
