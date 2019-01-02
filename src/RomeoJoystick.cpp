@@ -108,7 +108,7 @@ void RomeoJoystick::updateLoop()
   } else if (_appName == BLYNK){
     //updateBLYNK();            //new method to be added later
   } else {
-    Serial.print ("Wrong app type entered: ");
+    Serial.print ("Wrong app type: ");
     Serial.println(_appName);
     updateGOBLE();
   }
