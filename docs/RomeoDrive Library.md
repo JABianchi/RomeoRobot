@@ -9,6 +9,7 @@ Links to other Libraries:
 * Go to the [RomeoJoystick Library](RomeoJoystick%20Library.md)
 
 
+
 # RomeoDrive()
 ### description:
 * A RomeoDrive object can be simply constructed to connect to both motors with the Right motor connected to M1 and the left motor connected to M2.  If using a smartphone app, you will need to manually construct a RomeoJoystick object if using this constructor.
@@ -20,6 +21,7 @@ RomeoDrive robotName()
 * robotName = the name of your RomeoDrive variable
 ### parameters:
 * none
+
 
 
 # RomeoDrive()
@@ -38,6 +40,7 @@ RomeoDrive robotName(appName)
 * When pairing your phone with the Romeo board, the Android password for the "Go BLE" app is ```000000```
 
 
+
 # arcade()
 ### description:
 * Allows for arcade-style control of a robot:
@@ -52,6 +55,7 @@ arcade()
 * none
 ### returns:
 * none
+
 
 
 # arcade()
@@ -76,6 +80,7 @@ arcade(moveSpeed, turnSpeed)
   * ```-127``` is full speed turning left
 ### returns:
 * none
+
 
 
 # end()

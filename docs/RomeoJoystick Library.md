@@ -27,6 +27,7 @@ RomeoJoystick phoneName(appName)
 * When pairing your phone with the Romeo board, the Android password for the "Go BLE" app is ```000000```
 
 
+
 # axis()
 ### description:
 * Reads the values of the analog joysticks in your smartphone app and returns the integer value
@@ -37,15 +38,15 @@ axis(axisName)
 ### parameters:
 * axisName = ```LY``` or ```LX``` or ```RY``` or ```RX```
   * ```LY``` = Left joystick, Y-axis
-  * ```LY``` = Left joystick, X-axis
+  * ```LX``` = Left joystick, X-axis
   * ```RY``` = Right joystick, Y-axis
-  * ```RX``` = Right joystick, X-axis
-  
-  ### returns:
+  * ```RX``` = Right joystick, X-axis  
+### returns:
 * an integer from -127 to +127
   * ```127``` is all the way up or all the way right
   * ```0``` is when the joystck is not being touched
   * ```-127``` is all the way down or all the way left
+
 
 
 # button()

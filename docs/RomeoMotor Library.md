@@ -8,6 +8,8 @@ Links to other Libraries:
 * Go to the [RomeoJoystick Library](RomeoJoystick%20Library.md)
 * Go to the [RomeoDrive Library](RomeoDrive%20Library.md)
 
+
+
 # RomeoMotor()
 ### description:
 * A RomeoMotor object must be constructed to use one of the two motor ports provided on the DFRobot Romeo board.
@@ -19,6 +21,7 @@ RomeoMotor motorName(motor)
 * motorName = the name of your RomeoMotor variable
 ### parameters:
 * motor = ```1``` or ```2```, the number of the motor used, corresponding to M1 or M2 on the Romeo board.
+
 
 
 # move()
@@ -39,6 +42,7 @@ move(speed)
 * none
 
 
+
 # flip()
 ### description:
 * The flip() method allows you to reverse all subsequent calls to the moveMotor() method.
@@ -54,11 +58,12 @@ flip(isFlipped)
  * none
  
  
+
 # end()
 ### description:
 * The end() method stops the motor from moving the rest of the program.
 * The only way to regain functionality of the motor is to reset the Arduino.
-* Note: shutDown() is a deprecated version of end()
+* Note: ```shutDown()``` is a deprecated version of end()
 ### syntax:
 ```c
 end()
