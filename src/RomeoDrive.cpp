@@ -14,7 +14,7 @@ RomeoDrive::RomeoDrive(AppType appName)
 
   RomeoMotor r = new RomeoMotor(1);
   RomeoMotor l = new RomeoMotor(2);
-  RomeoJoystick j = new RomeoJoystick(appName);
+  RomeoJoystick j(appName);
 
 
   _rightMotor = &r;
