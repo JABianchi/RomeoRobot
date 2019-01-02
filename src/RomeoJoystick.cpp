@@ -110,6 +110,7 @@ void RomeoJoystick::updateLoop()
   } else {
     Serial.print ("Wrong app type entered: ");
     Serial.println(_appName);
+    updateGOBLE();
   }
 
 
