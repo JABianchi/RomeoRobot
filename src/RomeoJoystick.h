@@ -22,7 +22,7 @@ enum AxisType {
   LX,
   LY,
   RX,
-  RY
+  RY 
 };
 
 enum AppType{

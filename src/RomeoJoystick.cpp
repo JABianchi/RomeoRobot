@@ -113,7 +113,6 @@ void RomeoJoystick::updateLoop()
     updateGOBLE();
   }
 
-
 }
 
 
