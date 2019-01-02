@@ -1,0 +1,5 @@
+{
+    "arduino.path": "C:\\Program Files\\arduino-1.8.5",
+    "arduino.defaultBaudRate": 115200,
+    "output": "build"
+}

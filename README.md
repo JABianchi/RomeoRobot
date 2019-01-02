@@ -1,5 +1,5 @@
-# RomeoRobot Libraries v1.30
-1/1/2019
+# RomeoRobot Libraries v1.31
+1/2/2019
 
 RomeoRobot describes a set of libraries designed to control an Arduino robot using the DFRobot Romeo BLE board.
 It was inspired by Carnegie Mellon's Robotics Academy's work on RobotC for the VEX Controls system.
@@ -18,6 +18,10 @@ The following libraries are included:
 * Choose a drive system (arcade drive, tank drive, mecanum drive, etc) to remotely control your robot
 * Go to the [RomeoDrive Library](docs/RomeoDrive%20Library.md)
 
+ <br/><br/>
+
+## Current Bugs
+* 1.3.1 Bug in RomeoJoystick constructor used in RomeoDrive class, appName param being passed as 512.  Temporarily, this param is bypassed to always use the GOBLE app.
 
 ## Future Work
 * Integration of the configurable [BLYNK app](https://github.com/blynkkk/blynk-library) (when BLYNK revises their BLE plugin)
