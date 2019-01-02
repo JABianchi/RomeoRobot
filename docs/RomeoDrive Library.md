@@ -39,7 +39,7 @@ RomeoDrive robotName(appName)
 ### note:
 * When pairing your phone with the Romeo board, the Android password for the "Go BLE" app is ```000000```
 
-
+<br/><br/>
 
 # arcade()
 ### description:
@@ -81,7 +81,7 @@ arcade(moveSpeed, turnSpeed)
 ### returns:
 * none
 
-
+<br/><br/>
 
 # end()
 ### description:

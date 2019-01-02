@@ -10,7 +10,7 @@ Links to other Libraries:
 * Go to the [RomeMotor Library](RomeoMotor%20Library.md)
 * Go to the [RomeoDrive Library](RomeoDrive%20Library.md)
 
-
+<br/><br/>
 
 # RomeoJoystick()
 ### description:
@@ -26,7 +26,7 @@ RomeoJoystick phoneName(appName)
 ### note:
 * When pairing your phone with the Romeo board, the Android password for the "Go BLE" app is ```000000```
 
-
+<br/><br/>
 
 # axis()
 ### description:
@@ -47,7 +47,7 @@ axis(axisName)
   * ```0``` is when the joystck is not being touched
   * ```-127``` is all the way down or all the way left
 
-
+<br/><br/>
 
 # button()
 ### description:

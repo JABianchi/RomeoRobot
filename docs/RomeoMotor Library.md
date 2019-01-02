@@ -8,7 +8,7 @@ Links to other Libraries:
 * Go to the [RomeoJoystick Library](RomeoJoystick%20Library.md)
 * Go to the [RomeoDrive Library](RomeoDrive%20Library.md)
 
-
+<br/><br/>
 
 # RomeoMotor()
 ### description:
@@ -22,7 +22,7 @@ RomeoMotor motorName(motor)
 ### parameters:
 * motor = ```1``` or ```2```, the number of the motor used, corresponding to M1 or M2 on the Romeo board.
 
-
+<br/><br/>
 
 # move()
 ### description:
@@ -41,7 +41,7 @@ move(speed)
 ### returns:
 * none
 
-
+<br/><br/>
 
 # flip()
 ### description:
@@ -57,7 +57,7 @@ flip(isFlipped)
 ### returns:
  * none
  
- 
+ <br/><br/>
 
 # end()
 ### description:
