@@ -22,5 +22,7 @@ The following libraries are included:
 ## Future Work
 * Integration of the configurable [BLYNK app](https://github.com/blynkkk/blynk-library) (when BLYNK revises their BLE plugin)
 * Include tank-drive methods for [BLYNK app](https://github.com/blynkkk/blynk-library)
-* RomeoMotor methods to control motors beyond the M1 and M2 ports (that use a VEX MC-29 on Arduino pins 3,5,6,9,10,11)
+* RomeoMotor methods to control motors beyond the M1 and M2 ports
+  * Could use a [VEX MC-29](https://www.vexrobotics.com/276-2193.html) on Arduino pins 3,5,6,9,10,11
+  * Could use [dfRobot's Cherokey pcb](https://www.dfrobot.com/wiki/index.php/Cherokey_4WD_Mobile_Platform_(SKU:ROB0102)#Microcontroller_Compatibility) 
 * Include mecanum-drive methods
