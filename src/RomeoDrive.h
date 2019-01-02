@@ -15,7 +15,7 @@
 class RomeoDrive
 {
   public:
-   // RomeoDrive;
+    RomeoDrive();
     RomeoDrive(AppType appName);
     void arcade();
     void arcade(int moveSpeed, int turnSpeed);
