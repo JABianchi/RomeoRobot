@@ -11,60 +11,69 @@
 
 RomeoDrive::RomeoDrive(AppType appName)
 {
-  *_rightMotor = new RomeoMotor(1);
-  *_leftMotor = new RomeoMotor(2);
-  *_phone = new RomeoJoystick(appName);
+
+  RomeoMotor r = new RomeoMotor(1);
+  RomeoMotor l = new RomeoMotor(2);
+  RomeoJoystick j = new RomeoJoystick(appName);
+
+
+  _rightMotor = &r;
+  _leftMotor = &l;
+  _phone = &j;
   
 }
 
 RomeoDrive::RomeoDrive()
 {
-  *_rightMotor = new RomeoMotor(1);
-  *_leftMotor = new RomeoMotor(2);  
-  
+  RomeoMotor r = new RomeoMotor(1);
+  RomeoMotor l = new RomeoMotor(2);
+
+  _rightMotor = &r;
+  _leftMotor = &l;
+
 }
 
 
 void RomeoDrive::arcade(){
   
-  int turnSpeed = *_phone.axis(X);
-  int moveSpeed = *_phone.axis(Y);
+  int turnSpeed = _phone->axis(X);
+  int moveSpeed = _phone->axis(Y);
 
-  *_rightMotor.move(moveSpeed - turnSpeed);
-  *_leftMotor.move(moveSpeed + turnSpeed);
+  _rightMotor->move(moveSpeed - turnSpeed);
+  _leftMotor->move(moveSpeed + turnSpeed);
   
 }
 
 void RomeoDrive::arcade(int moveSpeed, int turnSpeed){
   
-  *_rightMotor.move(moveSpeed - turnSpeed);
-  *_leftMotor.move(moveSpeed + turnSpeed);
+  _rightMotor->move(moveSpeed - turnSpeed);
+  _leftMotor->move(moveSpeed + turnSpeed);
   
 }
 
 
 void RomeoDrive::tank(){
   
-  int moveRightSpeed = *_phone.axis(Y);
-  int moveLeftSpeed = *_phone.axis(Y);   //new axis needs to be added when double joystick app is functional
+  int moveRightSpeed = _phone->axis(Y);
+  int moveLeftSpeed = _phone->axis(Y);   //new axis needs to be added when double joystick app is functional
 
-  *_rightMotor.move(moveRightSpeed);
-  *_leftMotor.move(moveLeftSpeed);
+  _rightMotor->move(moveRightSpeed);
+  _leftMotor->move(moveLeftSpeed);
   
 }
 
 void RomeoDrive::tank(int moveRightSpeed, int moveLeftSpeed){
 
-  *_rightMotor.move(moveRightSpeed);
-  *_leftMotor.move(moveLeftSpeed);
+  _rightMotor->move(moveRightSpeed);
+  _leftMotor->move(moveLeftSpeed);
 
 }
 
 
 void RomeoDrive::end(){
 
-  *_rightMotor.end();
-  *_leftMotor.end();
+  _rightMotor->end();
+  _leftMotor->end();
 
 }
 
