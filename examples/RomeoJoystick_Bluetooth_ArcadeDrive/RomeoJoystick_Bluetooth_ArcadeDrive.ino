@@ -15,7 +15,7 @@ RomeoMotor leftMotor(2);
 RomeoJoystick myPhone(GOBLE);
 
 void setup() {
-  Serial.begin(115200);  //initial the Serial
+  Serial.begin(115200);  //initialize the Serial monitor
   myPhone.printJoy(true); //print out Joystick values to serial monitor
 }
 

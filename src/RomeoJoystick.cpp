@@ -68,6 +68,7 @@ int RomeoJoystick::axis(AxisType axisName)
     return _RX_VAL;
   } else {
     Serial.println("Incorrect axis name.");
+    Serial.println(axisName);
     return 0;
   }
 
@@ -91,7 +92,8 @@ boolean RomeoJoystick::button(ButtonType buttonName)
   } else if(buttonName == BOTTOM){
     return _BOTTOM_VAL;
   } else {
-    Serial.println("Incorrect button name.");
+    Serial.print("Incorrect button name: ");
+    Serial.println(buttonName);
     return false;
   }
 
@@ -106,7 +108,8 @@ void RomeoJoystick::updateLoop()
   } else if (_appName == BLYNK){
     //updateBLYNK();            //new method to be added later
   } else {
-    Serial.println ("Wrong app type entered.");
+    Serial.print ("Wrong app type entered: ");
+    Serial.println(_appName);
   }
 
 
