@@ -201,7 +201,15 @@ void RomeoJoystick::updateGOBLE(){
 
     }
 
-    prints();  
+    prints();
+
+    //Print Raw Values
+    if(_isPrintRaw){
+      Serial.print(_byteNum);
+      Serial.print("\t");
+      Serial.print("inByte ");
+      Serial.println(inByte, DEC);
+    }
 
   }   
 }
@@ -239,14 +247,6 @@ void RomeoJoystick::prints(){
       Serial.print(" )");
       
       Serial.println();
-    }
-
-    //Print Raw Values
-    if(_isPrintRaw){
-      Serial.print(_byteNum);
-      Serial.print("\t");
-      Serial.print("inByte ");
-      Serial.println(inByte, DEC);
     }
 
 }
