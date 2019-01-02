@@ -35,8 +35,13 @@ RomeoJoystick phoneName(appName)
 axis(axisName)
 ```
 ### parameters:
-* axisName = ```Y``` or ```X```, corresponding to the horizontal X-axis or vertical Y-axis of the left joystick
-### returns:
+* axisName = ```LY``` or ```LX``` or ```RY``` or ```RX```
+  * ```LY``` = Left joystick, Y-axis
+  * ```LY``` = Left joystick, X-axis
+  * ```RY``` = Right joystick, Y-axis
+  * ```RX``` = Right joystick, X-axis
+  
+  ### returns:
 * an integer from -127 to +127
   * ```127``` is all the way up or all the way right
   * ```0``` is when the joystck is not being touched
@@ -57,5 +62,6 @@ button(buttonName)
   * For the ANDROID GOBLE app: ```UP```=1, ```DOWN```=2, ```RIGHT```=3, ```LEFT```=4, ```TOP```=5, ```BOTTOM```=6
 ### returns:
 * ```TRUE``` or ```FALSE``` depending if the button is pressed or not
-  * Note: ```TRUE``` corresponds to 1 and ```FALSE``` corresponds to 0
+  * ```TRUE``` corresponds to 1
+  * ```FALSE``` corresponds to 0
   
