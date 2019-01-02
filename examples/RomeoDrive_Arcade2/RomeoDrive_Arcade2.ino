@@ -15,7 +15,7 @@
 //#include "RomeoJoystick.h"
 
 
-RomeoDrive myDrive();
+RomeoDrive myDrive;
 //RomeoJoystick myPhone(GOBLE);
 RomeoJoystick myPhone(0); //0 is the first value, GOBLE, in the enum
 
