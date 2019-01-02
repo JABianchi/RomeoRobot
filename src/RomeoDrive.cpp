@@ -11,16 +11,16 @@
 
 RomeoDrive::RomeoDrive(AppType appName)
 {
-  _rightMotor = new RomeoMotor(1);
-  _leftMotor = new RomeoMotor(2);
-  _phone = new RomeoJoystick(appName);
+  *_rightMotor = new RomeoMotor(1);
+  *_leftMotor = new RomeoMotor(2);
+  *_phone = new RomeoJoystick(appName);
   
 }
 
 RomeoDrive::RomeoDrive()
 {
-  _rightMotor = new RomeoMotor(1);
-  _leftMotor = new RomeoMotor(2);  
+  *_rightMotor = new RomeoMotor(1);
+  *_leftMotor = new RomeoMotor(2);  
   
 }
 
