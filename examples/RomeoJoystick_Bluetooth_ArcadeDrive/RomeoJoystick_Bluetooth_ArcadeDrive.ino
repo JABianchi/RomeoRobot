@@ -22,11 +22,11 @@ void setup() {
 void loop() {
   
   //Get values of x-axis & y-axis from phone
-  int x = myPhone.axis(X);
-  int y = myPhone.axis(Y);
+  int leftX = myPhone.axis(LX);
+  int leftY = myPhone.axis(LY);
 
   //ARCADE-STYLE DRIVING
-  rightMotor.move(y+x);
-  leftMotor.move(y-x);
+  rightMotor.move(leftY + leftX);
+  leftMotor.move(leftY - leftX);
   
 }

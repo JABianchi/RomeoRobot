@@ -16,16 +16,15 @@
 #define TOP_BUTTON 5
 #define BOTTOM_BUTTON 6
 
-#define HBYTE0 85
-#define HBYTE1 170
-#define HBYTE2 17
-
-#define BUTTON_CHECK_BYTE 4
-#define BUTTON_VAL_BYTE 6
-#define AXIS_CHECK_BYTE 5
-#define X_JOY_BYTE 7
-#define Y_JOY_BYTE 6
-#define END_BYTE 8
+#define GOBLE_HBYTE1 85
+#define GOBLE_HBYTE2 170
+//#define GOBLE_HBYTE3 17
+#define GOBLE_BUTTON_CHECK_BYTE 4
+#define GOBLE_BUTTON_VAL_BYTE 6
+#define GOBLE_AXIS_CHECK_BYTE 5
+#define GOBLE_X_JOY_BYTE 7
+#define GOBLE_Y_JOY_BYTE 6
+#define GOBLE_END_BYTE 8
 
 RomeoJoystick::RomeoJoystick(AppType appName)
 {
@@ -33,8 +32,10 @@ RomeoJoystick::RomeoJoystick(AppType appName)
   Serial.begin(115200);
   Serial.println("Starting serial monitor at 115200 for bluetooth joysticks");
 
-  _X_VAL = 0;
-  _Y_VAL = 0;
+  _LX_VAL = 0;
+  _LY_VAL = 0;
+  _RX_VAL = 0;
+  _RY_VAL = 0;
   _UP_VAL = false;
   _DOWN_VAL = false;
   _RIGHT_VAL = false;
@@ -42,7 +43,7 @@ RomeoJoystick::RomeoJoystick(AppType appName)
   _TOP_VAL = false;
   _BOTTOM_VAL = false;
 
-  _byteNum = 0;
+  _byteNum = -1;
   _isCounting = false;
   _buttonFlag = false;
   _joyFlag = false;
@@ -57,10 +58,14 @@ int RomeoJoystick::axis(AxisType axisName)
 
   updateLoop();
 
-  if(axisName == Y){
-    return _Y_VAL;
-  } else if (axisName == X){
-    return _X_VAL;
+  if(axisName == LY){
+    return _LY_VAL;
+  } else if (axisName == LX){
+    return _LX_VAL;
+  } else if (axisName == RY){
+    return _RY_VAL;
+  } else if (axisName == RX){
+    return _RX_VAL;
   } else {
     Serial.println("Incorrect axis name.");
     return 0;
@@ -117,7 +122,7 @@ void RomeoJoystick::updateGOBLE(){
     byte inByte = Serial.read();
     
     //Check if a new frame has started
-    if(inByte == HBYTE0 && !_buttonFlag && !_joyFlag){
+    if(inByte == GOBLE_HBYTE1 && !_buttonFlag && !_joyFlag){
       _byteNum = 0;
       _isCounting = true;
     }
@@ -127,20 +132,27 @@ void RomeoJoystick::updateGOBLE(){
         _byteNum++;
     }
 
+    //Reset early if second byte doesn't fit 
+    if(_byteNum == 2 && inByte != GOBLE_HBYTE2){
+      _isCounting = false;
+      _byteNum = -1;
+    }
+
     //Reset the counter after 8 bytes
-    if(_byteNum == END_BYTE){
+    if(_byteNum == GOBLE_END_BYTE){
       _isCounting = false;
       _buttonFlag = false;
       _joyFlag = false;
+      _byteNum = -1;
     }
 
     //GET BUTTON VALUES
-    if(_byteNum == BUTTON_CHECK_BYTE && inByte == 1){
+    if(_byteNum == GOBLE_BUTTON_CHECK_BYTE && inByte == 1){
       //Serial.println("A BUTTON WAS PUSHED!");
       _buttonFlag = true;
     }
 
-    if(_buttonFlag && _byteNum == BUTTON_VAL_BYTE){
+    if(_buttonFlag && _byteNum == GOBLE_BUTTON_VAL_BYTE){
       
       //flip all buttons to false
       _UP_VAL = false;
@@ -170,24 +182,33 @@ void RomeoJoystick::updateGOBLE(){
     }
     
     //GET JOYPAD VALUES
-    if(_byteNum == AXIS_CHECK_BYTE && inByte == 3 && !_buttonFlag){
+    if(_byteNum == GOBLE_AXIS_CHECK_BYTE && inByte == 3 && !_buttonFlag){
       //Serial.println("JOYPAD WAS TOUCHED!");
       _joyFlag = true;
     }
     
-    if(_joyFlag && _byteNum == Y_JOY_BYTE){
-      _Y_VAL = inByte;
+    if(_joyFlag && _byteNum == GOBLE_Y_JOY_BYTE){
+      _LY_VAL = inByte;
     
-    } else if(_joyFlag && _byteNum == X_JOY_BYTE){
+    } else if(_joyFlag && _byteNum == GOBLE_X_JOY_BYTE){
     
-      _X_VAL = inByte;
+      _LX_VAL = inByte;
       _joyFlag = false;
       
       //map values
-      _X_VAL = constrain(map(_X_VAL,1,255,-127,127),-127,127);
-      _Y_VAL = constrain(map(_Y_VAL,1,255,-127,127),-127,127);
+      _LX_VAL = constrain(map(_LX_VAL,1,255,-127,127),-127,127);
+      _LY_VAL = constrain(map(_LY_VAL,1,255,-127,127),-127,127);
 
-    }      
+    }
+
+    prints();  
+
+  }   
+}
+
+
+//Print out all values function
+void RomeoJoystick::prints(){
 
     //Print Values
     if(_isPrint){
@@ -206,11 +227,17 @@ void RomeoJoystick::updateGOBLE(){
       Serial.print(", BOTTOM: ");
       Serial.print(_BOTTOM_VAL);
       Serial.print(",     ");      
-      Serial.print("Joy: ");
-      Serial.print(_X_VAL);
+      Serial.print("LJoy: (");
+      Serial.print(_LX_VAL);
       Serial.print(", ");
-      Serial.print(_Y_VAL);
+      Serial.print(_LY_VAL);
+      Serial.print(" ), ");
+      Serial.print("RJoy: (");
+      Serial.print(_RX_VAL);
+      Serial.print(", ");
+      Serial.print(_RY_VAL);
       Serial.print(" )");
+      
       Serial.println();
     }
 
@@ -221,16 +248,15 @@ void RomeoJoystick::updateGOBLE(){
       Serial.print("inByte ");
       Serial.println(inByte, DEC);
     }
-  }   
+
 }
 
-
-//Print out All Values Function
+//Check if print out All Values Function
 void RomeoJoystick::printJoy(boolean isPrint){
   _isPrint = isPrint;
 }
 
-//Print out All Values Function
+//Check if print out All Values Function including frame data
 void RomeoJoystick::printJoy(boolean isPrint, boolean isPrintRaw){
   _isPrint = isPrint;
   _isPrintRaw = isPrintRaw;

@@ -19,8 +19,10 @@ enum ButtonType {
 };
 
 enum AxisType {
-  X,
-  Y
+  LX,
+  LY,
+  RX,
+  RY
 };
 
 enum AppType{
@@ -44,9 +46,12 @@ class RomeoJoystick
     AppType _appName;
     void updateLoop();
     void updateGOBLE();
+    void prints();
 
-    int _X_VAL;
-    int _Y_VAL;
+    int _LX_VAL;
+    int _LY_VAL;
+    int _RX_VAL;
+    int _RY_VAL;
     boolean _UP_VAL;
     boolean _DOWN_VAL;
     boolean _RIGHT_VAL;
