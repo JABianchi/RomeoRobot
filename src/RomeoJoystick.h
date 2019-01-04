@@ -25,10 +25,10 @@ enum AxisType {
   RY 
 };
 
-enum AppType{
-  GOBLE,
-  BLYNK,
-  OTHER
+enum class AppType{
+  GOBLE=0,
+  BLYNK=1,
+  OTHER=2
 };
 
 

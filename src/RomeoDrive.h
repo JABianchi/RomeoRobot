@@ -24,9 +24,9 @@ class RomeoDrive
     void end();
 
   private:
-    RomeoMotor *_rightMotor;
-    RomeoMotor *_leftMotor;
-    RomeoJoystick *_phone;
+    RomeoMotor _rightMotor;
+    RomeoMotor _leftMotor;
+    RomeoJoystick _phone;
 
 };
 

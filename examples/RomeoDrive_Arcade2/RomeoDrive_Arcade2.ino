@@ -4,21 +4,15 @@
 * The Joystick class is constructed separately.
 * 
 * Author: Mr. Joel Andrew Bianchi
-* Date: 1/2/2019
+* Date: 1/4/2019
 * ---------------------------------------------------------------------------
 */
 
 #include <RomeoDrive.h>
 #include <RomeoJoystick.h>
 
-//#include "RomeoDrive.h"
-//#include "RomeoJoystick.h"
-
-
 RomeoDrive myDrive;
-//RomeoJoystick myPhone(GOBLE);
-RomeoJoystick myPhone(0); //0 is the first value, GOBLE, in the enum
-
+RomeoJoystick myPhone(GOBLE);
 
 void setup() {
   Serial.begin(115200);
