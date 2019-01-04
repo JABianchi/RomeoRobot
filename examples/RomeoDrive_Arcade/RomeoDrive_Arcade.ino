@@ -7,8 +7,7 @@
 * ---------------------------------------------------------------------------
 */
 
-//#include <RomeoDrive.h>
-#include "RomeoDrive.h"
+#include <RomeoDrive.h>
 
 RomeoDrive myDrive(GOBLE);
 

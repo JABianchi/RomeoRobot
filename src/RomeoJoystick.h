@@ -9,7 +9,7 @@
 
 #include "Arduino.h"
 
-enum class ButtonType {
+enum ButtonType {
   UP,
   DOWN,
   RIGHT,
@@ -18,19 +18,18 @@ enum class ButtonType {
   BOTTOM
 };
 
-enum class AxisType {
+enum AxisType {
   LX,
   LY,
   RX,
   RY 
 };
 
-enum class AppType{
-  GOBLE,
-  BLYNK,
-  OTHER
+enum AppType{
+  GOBLE = 1,
+  BLYNK = 2,
+  OTHER = 3
 };
-
 
 
 class RomeoJoystick
