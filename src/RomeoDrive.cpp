@@ -14,13 +14,13 @@ RomeoDrive::RomeoDrive(AppType appName) :
   _leftMotor(2),
   _phone(GOBLE)
 {
-  _phone->printJoy(true, false);
+  _phone.printJoy(true, false);
 
 }
 
-RomeoDrive::RomeoDrive():
+RomeoDrive::RomeoDrive() :
   _rightMotor(1),
-  _leftMotor(2),
+  _leftMotor(2)
 {
 
 }
