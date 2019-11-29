@@ -33,8 +33,8 @@ RomeoDrive::RomeoDrive() :
 
 void RomeoDrive::arcade(){
   
-  int turnSpeed = _phone.axis(LX);
-  int moveSpeed = _phone.axis(LY);
+  int turnSpeed = _phone->axis(LX);
+  int moveSpeed = _phone->axis(LY);
 
   _rightMotor->move(moveSpeed - turnSpeed);
   _leftMotor->move(moveSpeed + turnSpeed);
@@ -50,8 +50,8 @@ void RomeoDrive::arcade(int moveSpeed, int turnSpeed){
 
 void RomeoDrive::tank(){
   
-  int moveRightSpeed = _phone.axis(LY);
-  int moveLeftSpeed = _phone.axis(LY);   //new axis needs to be added when double joystick app is functional
+  int moveRightSpeed = _phone->axis(LY);
+  int moveLeftSpeed = _phone->axis(LY);   //new axis needs to be added when double joystick app is functional
 
   _rightMotor->move(moveRightSpeed);
   _leftMotor->move(moveLeftSpeed);
