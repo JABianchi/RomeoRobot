@@ -9,7 +9,7 @@
 
 #include <RomeoDrive.h>
 
-RomeoDrive myDrive(GOBLE);
+RomeoDrive myDrive();
 
 void setup() {
   Serial.begin(115200);

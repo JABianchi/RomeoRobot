@@ -8,7 +8,7 @@
 #include "RomeoMotor.h"
 #include "RomeoJoystick.h"
 
-RomeoDrive::RomeoDrive(AppType appName) :
+RomeoDrive::RomeoDrive() :
   _rightMotor(1),
   _leftMotor(2),
   _phone(GOBLE)
@@ -16,12 +16,20 @@ RomeoDrive::RomeoDrive(AppType appName) :
   _phone->printJoy(true, false);
 }
 
-RomeoDrive::RomeoDrive() :
-  _rightMotor(1),
-  _leftMotor(2)
-{
+// RomeoDrive::RomeoDrive(AppType appName) :
+//   _rightMotor(1),
+//   _leftMotor(2),
+//   _phone(GOBLE)
+// {
+//   _phone->printJoy(true, false);
+// }
 
-}
+// RomeoDrive::RomeoDrive() :
+//   _rightMotor(1),
+//   _leftMotor(2)
+// {
+
+// }
 
 void RomeoDrive::arcade(){
   

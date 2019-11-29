@@ -12,7 +12,7 @@
 #include <RomeoJoystick.h>
 
 RomeoDrive myDrive;
-RomeoJoystick myPhone(GOBLE);
+RomeoJoystick myPhone();
 
 void setup() {
   Serial.begin(115200);
