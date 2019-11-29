@@ -1,5 +1,5 @@
 #######################################
-# Syntax Coloring Map For RomeoMotor
+# Syntax Coloring Map For RomeoRobot Libraries
 #######################################
 
 #######################################
@@ -9,6 +9,7 @@
 RomeoMotor	KEYWORD1
 RomeoJoystick	KEYWORD1
 RomeoDrive  KEYWORD1
+RomeoServobot   KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
@@ -16,12 +17,18 @@ RomeoDrive  KEYWORD1
 
 move	KEYWORD2
 flip	KEYWORD2
-end	KEYWORD2
 shutDown    KEYWORD2
 button	KEYWORD2
 axis	KEYWORD2
 arcade  KEYWORD2
 tank    KEYWORD2
+goForward   KEYWORD2
+goBack   KEYWORD2
+turnRight   KEYWORD2
+turnLeft   KEYWORD2
+swingTurnRight   KEYWORD2
+swingTurnLeft   KEYWORD2
+off   KEYWORD2
 
 
 #######################################
