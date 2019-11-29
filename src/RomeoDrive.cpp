@@ -11,7 +11,7 @@
 RomeoDrive::RomeoDrive() :
   _rightMotor(1),
   _leftMotor(2),
-  _phone(GOBLE)
+  _phone()
 {
   _phone->printJoy(true, false);
 }

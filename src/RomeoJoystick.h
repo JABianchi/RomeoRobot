@@ -35,7 +35,8 @@ enum AppType{
 class RomeoJoystick
 {
   public:
-    RomeoJoystick(AppType appName);
+    RomeoJoystick();
+    //RomeoJoystick(AppType appName);
     boolean button(ButtonType buttonName);
     int axis(AxisType axisName);
     void printJoy(boolean isPrint);

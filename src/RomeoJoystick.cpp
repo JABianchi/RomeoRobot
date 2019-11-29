@@ -26,9 +26,9 @@
 #define GOBLE_Y_JOY_BYTE 6
 #define GOBLE_END_BYTE 8
 
-RomeoJoystick::RomeoJoystick(AppType appName)
+
+RomeoJoystick::RomeoJoystick()
 {
-  _appName = appName;
   Serial.begin(115200);
   Serial.println("Starting serial monitor at 115200 for bluetooth joysticks");
 
@@ -51,6 +51,32 @@ RomeoJoystick::RomeoJoystick(AppType appName)
   _isPrintRaw = false;
 
 }
+
+// RomeoJoystick::RomeoJoystick(AppType appName)
+// {
+//   _appName = appName;
+//   Serial.begin(115200);
+//   Serial.println("Starting serial monitor at 115200 for bluetooth joysticks");
+
+//   _LX_VAL = 0;
+//   _LY_VAL = 0;
+//   _RX_VAL = 0;
+//   _RY_VAL = 0;
+//   _UP_VAL = false;
+//   _DOWN_VAL = false;
+//   _RIGHT_VAL = false;
+//   _LEFT_VAL = false;
+//   _TOP_VAL = false;
+//   _BOTTOM_VAL = false;
+
+//   _byteNum = -1;
+//   _isCounting = false;
+//   _buttonFlag = false;
+//   _joyFlag = false;
+//   _isPrint = false;
+//   _isPrintRaw = false;
+
+// }
 
 
 int RomeoJoystick::axis(AxisType axisName)
@@ -103,6 +129,7 @@ boolean RomeoJoystick::button(ButtonType buttonName)
 //update values based on particular phone & app
 void RomeoJoystick::updateLoop()
 {
+  _appName = GOBLE; //Automatically use the GOBLE app
   if(_appName == GOBLE){
     updateGOBLE();
   } else if (_appName == BLYNK){
