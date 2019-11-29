@@ -25,8 +25,8 @@ class RomeoServobot
     void off();
 
   private:
-    Servo *_rightServomotor;
-    Servo *_leftServomotor;
+    Servo _rightServomotor;
+    Servo _leftServomotor;
     int _rPin;
     int _lPin;
     int _centerSpeed;

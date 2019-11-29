@@ -16,8 +16,8 @@ RomeoServobot::RomeoServobot()
 {
   _rPin = 9;
   _lPin = 10;
-  _rightServomotor->attach(_rPin);
-  _leftServomotor->attach(_lPin);
+  _rightServomotor.attach(_rPin);
+  _leftServomotor.attach(_lPin);
 
   _centerSpeed = 95;
   _fwdSpeed = 180;
@@ -32,8 +32,8 @@ RomeoServobot::RomeoServobot(int rightServomotorPin, int leftServomotorPin)
 {
   _rPin = rightServomotorPin;
   _lPin = leftServomotorPin;
-  _rightServomotor->attach(rightServomotorPin);
-  _leftServomotor->attach(leftServomotorPin);
+  _rightServomotor.attach(rightServomotorPin);
+  _leftServomotor.attach(leftServomotorPin);
 
   _centerSpeed = 95;
   _fwdSpeed = 180;
@@ -45,53 +45,53 @@ RomeoServobot::RomeoServobot(int rightServomotorPin, int leftServomotorPin)
 //function to make the servobot move forward
 void RomeoServobot::goForward()
 {
-  _rightServomotor->write(_backSpeed);
-  _leftServomotor->write(_fwdSpeed);
+  _rightServomotor.write(_backSpeed);
+  _leftServomotor.write(_fwdSpeed);
 }
 
 //function to make the servobot move backwards
 void RomeoServobot::goBack()
 {
-  _rightServomotor->write(_fwdSpeed);
-  _leftServomotor->write(_backSpeed);
+  _rightServomotor.write(_fwdSpeed);
+  _leftServomotor.write(_backSpeed);
 }
 
 //function to make the servobot turn to the right
 void RomeoServobot::turnRight()
 {
-  _rightServomotor->write(_fwdSpeed);
-  _leftServomotor->write(_fwdSpeed);
+  _rightServomotor.write(_fwdSpeed);
+  _leftServomotor.write(_fwdSpeed);
 }
 
 //function to make the servobot turn to the left
 void RomeoServobot::turnLeft()
 {
-  _rightServomotor->write(_backSpeed);
-  _leftServomotor->write(_backSpeed);
+  _rightServomotor.write(_backSpeed);
+  _leftServomotor.write(_backSpeed);
 }
 
 //function to make the servobot swing turn to the right
 void RomeoServobot::swingTurnRight()
 {
-  _rightServomotor->write(_centerSpeed);
-  _leftServomotor->write(_fwdSpeed);
+  _rightServomotor.write(_centerSpeed);
+  _leftServomotor.write(_fwdSpeed);
 }
 
 //function to make the servobot swing turn to the left
 void RomeoServobot::swingTurnLeft()
 {
-  _rightServomotor->write(_backSpeed);
-  _leftServomotor->write(_centerSpeed);
+  _rightServomotor.write(_backSpeed);
+  _leftServomotor.write(_centerSpeed);
 }
 
 //function to make the servobot stop! (using detach)
 void RomeoServobot::off()
 {
-  _rightServomotor->detach();
-  _leftServomotor->detach();
+  _rightServomotor.detach();
+  _leftServomotor.detach();
   delay(50);
-  _rightServomotor->attach(_rPin);
-  _leftServomotor->attach(_lPin);
+  _rightServomotor.attach(_rPin);
+  _leftServomotor.attach(_lPin);
 
 }
 
