@@ -32,7 +32,7 @@ RomeoServobot botName()
 * Note that the only allowable analog pins on Romeo board are: 3,5,6,9,10,11
 ### syntax:
 ```c
-RomeoServobot botName(<i>rightServomotorPin</i>, <i>leftServomotorPin</i>)
+RomeoServobot botName(rightServomotorPin, leftServomotorPin)
 ```
 ### variable names:
 * botName = the name of your RomeoServobot
