@@ -1,55 +1,38 @@
-# RomeoServobot Library v1.40
+# RomeoMotor Library v1.40
 11/29/2019
 
 This library provides functions to control an Arduino robot using the DFRobot Romeo BLE board.
 It was inspired by Carnegie Mellon's Robotics Academy's work on RobotC for the VEX Controls system.
-This library in particular can easily be used with a robot chassis base like the BOE BOT which controls the wheels with two Servo motors.
 
 Links to other Libraries:
-* Go to the [RomeoMotor Library](RomeoMotor%20Library.md)
 * Go to the [RomeoJoystick Library](RomeoJoystick%20Library.md)
 * Go to the [RomeoDrive Library](RomeoDrive%20Library.md)
+* Go to the [RomeoServobot Library](RomeoServobot%20Library.md)
 
 <br/><br/>
 
-# RomeoServobot()
+# RomeoMotor()
 ### description:
-* A RomeoServobot object must be constructed to use the RomeoServobot functions
-* By default, the right motor should be plugged into port 9 and the left motor into port 10.
+* A RomeoMotor object must be constructed to use one of the two motor ports provided on the DFRobot Romeo board.
 ### syntax:
 ```c
-RomeoServobot botName()
+RomeoMotor motorName(motor)
 ```
 ### variable names:
-* botName = the name of your RomeoServobot
-
-<br/><br/>
-
-# RomeoServobot(int rightServomotorPin, int leftServomotorPin)
-### description:
-* A RomeoServobot object must be constructed to use the RomeoServobot functions
-* This version of the constructor allows you to use non-default pins
-* Note that the only allowable analog pins on Romeo board are: 3,5,6,9,10,11
-### syntax:
-```c
-RomeoServobot botName(<i>rightServomotorPin</i>, <i>leftServomotorPin</i>)
-```
-### variable names:
-* botName = the name of your RomeoServobot
+* motorName = the name of your RomeoMotor variable
 ### parameters:
-* rightServomotorPin = the digital port that you plug the right Servomotor into
-* leftServomotorPin = the digital port that you plug the left Servomotor into
+* motor = ```1``` or ```2```, the number of the motor used, corresponding to M1 or M2 on the Romeo board.
 
 <br/><br/>
 
-# goForward()
+# move()
 ### description:
-* Makes the servobot move foward at a specified speed.
+* Makes the motor move a particular speed and direction.
 * There is a dead range of +-20 where the motor won't move.
 * If a value greater than +127 or less than -127 is passed in, then they will be reduced to 100 or -100.
 ### syntax:
 ```c
-goForward(speed)
+move(speed)
 ```
 ### parameters:
 * speed = an integer from -127 to +127 to make the motor move
@@ -61,13 +44,30 @@ goForward(speed)
 
 <br/><br/>
 
-# off()
+# flip()
 ### description:
-* The off() method stops the servobot from moving.
-* If having trouble restrating, try resetting the Arduino.
+* The flip() method allows you to reverse all subsequent calls to the moveMotor() method.
+* This is very useful for robot drivetrains that have motors facing in opposite direction.
+* You can use the same speed values in move() to go forward, instead of turning.
 ### syntax:
 ```c
-off()
+flip(isFlipped)
+```
+### parameters:
+* isFlipped = ```true``` or ```false```
+### returns:
+ * none
+ 
+ <br/><br/>
+
+# end()
+### description:
+* The end() method stops the motor from moving the rest of the program.
+* The only way to regain functionality of the motor is to reset the Arduino.
+* Note: ```shutDown()``` is a deprecated version of end()
+### syntax:
+```c
+end()
 ```
  ### parameters:
  * none
