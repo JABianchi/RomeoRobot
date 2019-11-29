@@ -1,5 +1,5 @@
-# RomeoJoystick Library v1.30
-1/1/2019
+# RomeoJoystick Library v1.40
+11/29/2019
 
 This library provides functions to read the values from a BLE smartphone app
 in order to remotely control an Arduino robot using the DFRobot Romeo BLE board.
@@ -7,8 +7,9 @@ The "GO BLE" app is officially supported by dfRobot, and provides a 2-axis joyst
 This library follows similar conventions to Carnegie Mellon's Robotics Academy's work on RobotC for the VEX Controls system.
 
 Links to other Libraries:
-* Go to the [RomeMotor Library](RomeoMotor%20Library.md)
+* Go to the [RomeoMotor Library](RomeoMotor%20Library.md)
 * Go to the [RomeoDrive Library](RomeoDrive%20Library.md)
+* Go to the [RomeoServobot Library](RomeoServobot%20Library.md)
 
 <br/><br/>
 

@@ -1,13 +1,13 @@
-# RomeoDrive Library v1.30
-1/1/2019
+# RomeoDrive Library v1.40
+11/29/2019
 
 This library provides functions to control an Arduino robot using the DFRobot Romeo BLE board.
 It was inspired by Carnegie Mellon's Robotics Academy's work on RobotC for the VEX Controls system.
 
 Links to other Libraries:
-* Go to the [RomeMotor Library](RomeoMotor%20Library.md)
+* Go to the [RomeoMotor Library](RomeoMotor%20Library.md)
 * Go to the [RomeoJoystick Library](RomeoJoystick%20Library.md)
-
+* Go to the [RomeoServobot Library](RomeoServobot%20Library.md)
 
 
 # RomeoDrive()
