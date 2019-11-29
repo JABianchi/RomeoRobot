@@ -83,14 +83,14 @@ arcade(moveSpeed, turnSpeed)
 
 <br/><br/>
 
-# end()
+# off()
 ### description:
 * The end() method in RomeoDrive stops BOTH motors from moving the rest of the program.
 * The only way to regain functionality of the motor is to reset the Arduino.
 * (This method calls on the end() method in the RomeoMotor class for both motors.)
 ### syntax:
 ```c
-end()
+off()
 ```
  ### parameters:
  * none

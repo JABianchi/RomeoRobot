@@ -8,14 +8,12 @@
 #include "RomeoMotor.h"
 #include "RomeoJoystick.h"
 
-
 RomeoDrive::RomeoDrive(AppType appName) :
   _rightMotor(1),
   _leftMotor(2),
   _phone(GOBLE)
 {
   _phone->printJoy(true, false);
-
 }
 
 RomeoDrive::RomeoDrive() :
@@ -24,7 +22,6 @@ RomeoDrive::RomeoDrive() :
 {
 
 }
-
 
 void RomeoDrive::arcade(){
   
@@ -43,7 +40,6 @@ void RomeoDrive::arcade(int moveSpeed, int turnSpeed){
   
 }
 
-
 void RomeoDrive::tank(){
   
   int moveRightSpeed = _phone.axis(LY);
@@ -61,13 +57,9 @@ void RomeoDrive::tank(int moveRightSpeed, int moveLeftSpeed){
 
 }
 
+void RomeoDrive::off(){
 
-void RomeoDrive::end(){
-
-  _rightMotor->end();
-  _leftMotor->end();
+  _rightMotor->off();
+  _leftMotor->off();
 
 }
-
-
-    
