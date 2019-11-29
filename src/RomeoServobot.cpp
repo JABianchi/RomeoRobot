@@ -11,8 +11,8 @@
 
 //default constructor assigns pins 9 & 10 to be used by the Servo bot
 RomeoServobot::RomeoServobot() :
-  _rightServoMotor,
-  _leftServoMotor
+  _rightServomotor,
+  _leftServomotor
 {
   rPin = 9;
   lPin = 10;
@@ -28,8 +28,8 @@ RomeoServobot::RomeoServobot() :
 //alternate constructor allows the user to manually assign the pins used for the bot
 //*Note that only pins 3,5,6,9,10,11 are allowable servo motor pins
 RomeoServobot::RomeoServobot(int rightServomotorPin, int leftServomotorPin) :
-  _rightServoMotor,
-  _leftServoMotor
+  _rightServomotor,
+  _leftServomotor
 {
   rPin = rightServomotorPin;
   lPin = leftServomotorPin;
