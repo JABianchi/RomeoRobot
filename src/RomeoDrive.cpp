@@ -14,7 +14,7 @@ RomeoDrive::RomeoDrive(AppType appName) :
   _leftMotor(2),
   _phone(GOBLE)
 {
-  _phone.printJoy(true, false);
+  _phone->printJoy(true, false);
 
 }
 
@@ -31,15 +31,15 @@ void RomeoDrive::arcade(){
   int turnSpeed = _phone.axis(LX);
   int moveSpeed = _phone.axis(LY);
 
-  _rightMotor.move(moveSpeed - turnSpeed);
-  _leftMotor.move(moveSpeed + turnSpeed);
+  _rightMotor->move(moveSpeed - turnSpeed);
+  _leftMotor->move(moveSpeed + turnSpeed);
   
 }
 
 void RomeoDrive::arcade(int moveSpeed, int turnSpeed){
   
-  _rightMotor.move(moveSpeed - turnSpeed);
-  _leftMotor.move(moveSpeed + turnSpeed);
+  _rightMotor->move(moveSpeed - turnSpeed);
+  _leftMotor->move(moveSpeed + turnSpeed);
   
 }
 
@@ -49,23 +49,23 @@ void RomeoDrive::tank(){
   int moveRightSpeed = _phone.axis(LY);
   int moveLeftSpeed = _phone.axis(LY);   //new axis needs to be added when double joystick app is functional
 
-  _rightMotor.move(moveRightSpeed);
-  _leftMotor.move(moveLeftSpeed);
+  _rightMotor->move(moveRightSpeed);
+  _leftMotor->move(moveLeftSpeed);
   
 }
 
 void RomeoDrive::tank(int moveRightSpeed, int moveLeftSpeed){
 
-  _rightMotor.move(moveRightSpeed);
-  _leftMotor.move(moveLeftSpeed);
+  _rightMotor->move(moveRightSpeed);
+  _leftMotor->move(moveLeftSpeed);
 
 }
 
 
 void RomeoDrive::end(){
 
-  _rightMotor.end();
-  _leftMotor.end();
+  _rightMotor->end();
+  _leftMotor->end();
 
 }
 

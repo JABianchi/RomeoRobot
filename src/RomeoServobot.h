@@ -9,7 +9,6 @@
 
 #include "Arduino.h"
 #include <Servo.h>
-//#include "RomeoJoystick.h"
 
 
 class RomeoServobot
@@ -28,6 +27,8 @@ class RomeoServobot
   private:
     Servo *_rightServomotor;
     Servo *_leftServomotor;
+    int _rPin;
+    int _lPin;
     int _centerSpeed;
     int _fwdSpeed;
     int _backSpeed;
