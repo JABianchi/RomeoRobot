@@ -12,6 +12,7 @@ RomeoServobot bot(9,10);
 
 void setup(){  
   Serial.begin(9600);
+  delay(500);
 }
 
 void loop() {

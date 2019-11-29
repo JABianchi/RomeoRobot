@@ -87,6 +87,8 @@ void RomeoServobot::swingTurnLeft()
 //function to make the servobot stop! (using detach)
 void RomeoServobot::off()
 {
+  _rightServomotor.write(_centerSpeed);
+  _leftServomotor.write(_centerSpeed);
   _rightServomotor.detach();
   _leftServomotor.detach();
   delay(50);
