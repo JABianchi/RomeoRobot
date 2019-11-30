@@ -19,9 +19,9 @@ RomeoServobot::RomeoServobot()
   _rightServomotor.attach(_rPin);
   _leftServomotor.attach(_lPin);
 
-  _centerSpeed = 95;
-  _fwdSpeed = 180;
-  _backSpeed = 0;
+  _centerSpeed = 1519; //microseconds
+  _fwdSpeed = 2000;
+  _backSpeed = 1000;
 
 }
 
@@ -45,56 +45,61 @@ RomeoServobot::RomeoServobot(int rightServomotorPin, int leftServomotorPin)
 //function to make the servobot move forward
 void RomeoServobot::goForward()
 {
-  _rightServomotor.write(_backSpeed);
-  _leftServomotor.write(_fwdSpeed);
+  _rightServomotor.writeMicroseconds(_backSpeed);
+  _leftServomotor.writeMicroseconds(_fwdSpeed);
 }
 
 //function to make the servobot move backwards
 void RomeoServobot::goBack()
 {
-  _rightServomotor.write(_fwdSpeed);
-  _leftServomotor.write(_backSpeed);
+  _rightServomotor.writeMicroseconds(_fwdSpeed);
+  _leftServomotor.writeMicroseconds(_backSpeed);
 }
 
 //function to make the servobot turn to the right
 void RomeoServobot::turnRight()
 {
-  _rightServomotor.write(_fwdSpeed);
-  _leftServomotor.write(_fwdSpeed);
+  _rightServomotor.writeMicroseconds(_fwdSpeed);
+  _leftServomotor.writeMicroseconds(_fwdSpeed);
 }
 
 //function to make the servobot turn to the left
 void RomeoServobot::turnLeft()
 {
-  _rightServomotor.write(_backSpeed);
-  _leftServomotor.write(_backSpeed);
+  _rightServomotor.writeMicroseconds(_backSpeed);
+  _leftServomotor.writeMicroseconds(_backSpeed);
 }
 
 //function to make the servobot swing turn to the right
 void RomeoServobot::swingTurnRight()
 {
-  _rightServomotor.write(_centerSpeed);
-  _leftServomotor.write(_fwdSpeed);
+  _rightServomotor.writeMicroseconds(_centerSpeed);
+  _leftServomotor.writeMicroseconds(_fwdSpeed);
 }
 
 //function to make the servobot swing turn to the left
 void RomeoServobot::swingTurnLeft()
 {
-  _rightServomotor.write(_backSpeed);
-  _leftServomotor.write(_centerSpeed);
+  _rightServomotor.writeMicroseconds(_backSpeed);
+  _leftServomotor.writeMicroseconds(_centerSpeed);
 }
 
 //function to make the servobot stop! (using detach)
 void RomeoServobot::off()
 {
-  _rightServomotor.write(_centerSpeed);
-  _leftServomotor.write(_centerSpeed);
+  _rightServomotor.writeMicroseconds(_centerSpeed);
+  _leftServomotor.writeMicroseconds(_centerSpeed);
   _rightServomotor.detach();
   _leftServomotor.detach();
   delay(50);
   _rightServomotor.attach(_rPin);
   _leftServomotor.attach(_lPin);
 
+}
+
+//function to adjust the non-moving speed of the servo motors
+void setOffSpeed(int newOffSpeed){
+  _centerSpeed = newOffSpeed;
 }
 
 //function to convert a -100 to 100 range of values to the Servo range of 0 to 180

@@ -23,6 +23,7 @@ class RomeoServobot
     void swingTurnRight();
     void swingTurnLeft();
     void off();
+    void setCenterSpeed(int cs);
 
   private:
     Servo _rightServomotor;
