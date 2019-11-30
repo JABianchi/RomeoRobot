@@ -17,13 +17,15 @@ class RomeoServobot
     RomeoServobot();
     RomeoServobot(int rightServomotorPin, int leftServomotorPin);
     void goForward();
+    void goForward(int newSpeed);
     void goBack();
+    void goBack(int newSpeed);
     void turnRight();
     void turnLeft();
     void swingTurnRight();
     void swingTurnLeft();
     void off();
-    void setCenterSpeed(int cs);
+    void setOffSpeed(int newOffSpeed);
 
   private:
     Servo _rightServomotor;
@@ -33,7 +35,7 @@ class RomeoServobot
     int _centerSpeed;
     int _fwdSpeed;
     int _backSpeed;
-    int speed(int input);
+    int microSpeed(int input);
 };
 
 #endif

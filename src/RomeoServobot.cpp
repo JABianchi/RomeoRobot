@@ -35,9 +35,9 @@ RomeoServobot::RomeoServobot(int rightServomotorPin, int leftServomotorPin)
   _rightServomotor.attach(rightServomotorPin);
   _leftServomotor.attach(leftServomotorPin);
 
-  _centerSpeed = 95;
-  _fwdSpeed = 180;
-  _backSpeed = 0;
+  _centerSpeed = 1519;
+  _fwdSpeed = 2000;
+  _backSpeed = 1000;
 
 }
 
@@ -49,11 +49,25 @@ void RomeoServobot::goForward()
   _leftServomotor.writeMicroseconds(_fwdSpeed);
 }
 
+//function to make the servobot move forward at a certain speed
+void RomeoServobot::goForward(int newSpeed)
+{
+  _rightServomotor.writeMicroseconds(microSpeed(-newSpeed));
+  _leftServomotor.writeMicroseconds(microSpeed(newSpeed));
+}
+
 //function to make the servobot move backwards
 void RomeoServobot::goBack()
 {
   _rightServomotor.writeMicroseconds(_fwdSpeed);
   _leftServomotor.writeMicroseconds(_backSpeed);
+}
+
+//function to make the servobot move backwards at a certain speed
+void RomeoServobot::goBack(int newSpeed)
+{
+  _rightServomotor.writeMicroseconds(microSpeed(newSpeed));
+  _leftServomotor.writeMicroseconds(microSpeed(-newSpeed));
 }
 
 //function to make the servobot turn to the right
@@ -98,21 +112,26 @@ void RomeoServobot::off()
 }
 
 //function to adjust the non-moving speed of the servo motors
-void setOffSpeed(int newOffSpeed){
+void RomeoServobot::setOffSpeed(int newOffSpeed){
   _centerSpeed = newOffSpeed;
 }
 
-//function to convert a -100 to 100 range of values to the Servo range of 0 to 180
-int RomeoServobot::speed(int input){
+//function to convert an input value to a microseconds speed for a Servo:
+//input = should be a value between -100 and 100
+//return = a value between 1000 and 2000
+int RomeoServobot::microSpeed(int input){
 
-  int thresh = 10;
+  int thresh = 100;
 
   if(input > 0){
     return constrain(map(input,0,100,_centerSpeed,_fwdSpeed),_centerSpeed+thresh,_fwdSpeed);
   } else if (input < 0){
-    return constrain(map(input,-100,0,_backSpeed,_centerSpeed),_backSpeed-thresh,_centerSpeed);
+    return constrain(map(input,-100,0,_backSpeed,_centerSpeed),_backSpeed,_centerSpeed-thresh);
   } else {
     return _centerSpeed;
   }
 
 }
+
+
+
