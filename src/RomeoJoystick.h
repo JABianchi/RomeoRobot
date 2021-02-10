@@ -36,7 +36,7 @@ class RomeoJoystick
 {
   public:
     RomeoJoystick();
-    //RomeoJoystick(AppType appName);
+    RomeoJoystick(AppType appName);
     boolean button(ButtonType buttonName);
     int axis(AxisType axisName);
     void printJoy(boolean isPrint);
