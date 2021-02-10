@@ -1,6 +1,6 @@
 /* ---------------------------------------------------------------------------
 * Example of an arcade drive robot being controlled by the GO BLE app
-* using both the RomeoJoystick and RomeoMotor Libraries.
+* using the RomeoDrive, RomeoJoystick, and RomeoMotor Libraries.
 * 
 * Author: Mr. Joel Andrew Bianchi
 * Date: 1/4/2019

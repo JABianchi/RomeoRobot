@@ -1,29 +1,31 @@
 /* ---------------------------------------------------------------------------
 * Example of an arcade drive robot being controlled by the GO BLE app
-* using both the RomeoDrive, RomeoJoystick, and RomeoMotor Libraries.
+* using both the RomeoJoystick and RomeoMotor Libraries.
 * The Joystick class is constructed separately.
 * 
 * Author: Mr. Joel Andrew Bianchi
-* Date: 1/4/2019
+* Date: 2/10/2021
 * ---------------------------------------------------------------------------
 */
 
-#include <RomeoDrive.h>
-#include <RomeoJoystick.h>
+#include "RomeoMotor.h"
+#include "RomeoJoystick.h"
 
-RomeoDrive myDrive;
-RomeoJoystick myPhone;
+RomeoMotor rightMotor(1);
+RomeoMotor leftMotor(2);
+RomeoJoystick myPhone(IPHONE);
 
 void setup() {
   Serial.begin(115200);
-  myPhone.printJoy(true); //print out Joystick values to serial monitor
 }
 
 void loop() {
- 
-  int turn = myPhone.axis(LX);
-  int fwd = myPhone.axis(LY);
+  
+  int x = myPhone.axis(X);
+  int y = myPhone.axis(Y);
 
-  myDrive.arcade(fwd, turn);
+  //ARCADE-STYLE DRIVING
+  rightMotor.move(y+x);
+  leftMotor.move(y-x);
   
 }

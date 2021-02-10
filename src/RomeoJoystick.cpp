@@ -52,31 +52,31 @@ RomeoJoystick::RomeoJoystick()
 
 }
 
-// RomeoJoystick::RomeoJoystick(AppType appName)
-// {
-//   _appName = appName;
-//   Serial.begin(115200);
-//   Serial.println("Starting serial monitor at 115200 for bluetooth joysticks");
+RomeoJoystick::RomeoJoystick(AppType appName)
+{
+  _appName = appName;
+  Serial.begin(115200);
+  Serial.println("Starting serial monitor at 115200 for bluetooth joysticks");
 
-//   _LX_VAL = 0;
-//   _LY_VAL = 0;
-//   _RX_VAL = 0;
-//   _RY_VAL = 0;
-//   _UP_VAL = false;
-//   _DOWN_VAL = false;
-//   _RIGHT_VAL = false;
-//   _LEFT_VAL = false;
-//   _TOP_VAL = false;
-//   _BOTTOM_VAL = false;
+  _LX_VAL = 0;
+  _LY_VAL = 0;
+  _RX_VAL = 0;
+  _RY_VAL = 0;
+  _UP_VAL = false;
+  _DOWN_VAL = false;
+  _RIGHT_VAL = false;
+  _LEFT_VAL = false;
+  _TOP_VAL = false;
+  _BOTTOM_VAL = false;
 
-//   _byteNum = -1;
-//   _isCounting = false;
-//   _buttonFlag = false;
-//   _joyFlag = false;
-//   _isPrint = false;
-//   _isPrintRaw = false;
+  _byteNum = -1;
+  _isCounting = false;
+  _buttonFlag = false;
+  _joyFlag = false;
+  _isPrint = false;
+  _isPrintRaw = false;
 
-// }
+}
 
 
 int RomeoJoystick::axis(AxisType axisName)
