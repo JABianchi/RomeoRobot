@@ -3,7 +3,7 @@
 
 This library provides functions to control an Arduino robot using the DFRobot Romeo BLE board.
 It was inspired by Carnegie Mellon's Robotics Academy's work on RobotC for the VEX Controls system.
-This library in particular can easily be used with a robot chassis base like the BOE BOT which controls the wheels with two Servo motors.
+This library in particular can easily be used with a robot chassis base like the Parallax BOE BOT which controls the wheels with two Servo motors.
 
 Links to other Libraries:
 * Go to the [RomeoMotor Library](RomeoMotor%20Library.md)
