@@ -13,7 +13,7 @@
 
 RomeoMotor rightMotor(1);
 RomeoMotor leftMotor(2);
-RomeoJoystick myPhone(IPHONE);
+RomeoJoystick myPhone(GOBLE);
 
 void setup() {
   Serial.begin(115200);
@@ -21,8 +21,8 @@ void setup() {
 
 void loop() {
   
-  int x = myPhone.axis(X);
-  int y = myPhone.axis(Y);
+  int x = myPhone.axis(LX); //can also use RX
+  int y = myPhone.axis(LY); //can also use RY
 
   //ARCADE-STYLE DRIVING
   rightMotor.move(y+x);
